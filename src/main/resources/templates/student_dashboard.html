@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Dashboard</title>
+</head>
+<body th:object="${student}">
+<h1>Student's personal account</h1>
+<h2>Student information:</h2>
+<p>Student ID: <span th:text="${studentIdFromProperties}"/></p>
+<p>Student name: <span th:text="*{name} + ' '+ *{lastname}"/></p>
+<h2>Completed topics:</h2>
+<ul>
+    <ul th:each="topic: *{coveredTopics}">
+        <li th:text="${topic.name}"></li>
+    </ul>
+</ul>
+</body>
+</html>

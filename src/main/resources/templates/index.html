@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Start page!</title>
+</head>
+<body>
+<h1> Aslan's IT-school!</h1>
+<img src="/static/image/aslan_photo.png" alt="Aslan Javasky">
+<div class="buttons">
+    <a href="/sign_up" id="signUpButton">
+        <button>Sign Up</button>
+    </a>
+    <a th:href="@{'/student_dashboard?student_id='+ ${studentIdFromProperties}}" id="signInButton">
+        <button>Sign In</button>
+    </a>
+</div>
+<ul>
+    <li th:each="topic:${topicList}">
+        <span th:text="${topic.name}"/>
+    </li>
+</ul>
+</body>
+</html>

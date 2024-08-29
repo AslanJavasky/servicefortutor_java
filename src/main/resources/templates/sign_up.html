@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Page!</title>
+    <style>
+        .error{color:red}
+    </style>
+</head>
+<body>
+    <h1>Registration a new student:</h1>
+    <form th:action="@{add_student}" th:method="POST" th:object="${student}">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" th:field="*{name}">
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error"></span><br><br>
+        <label for="lastname">Lastname:</label>
+        <input type="text" id="lastname" name="lastname" th:field="*{lastname}">
+        <span th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}" class="error"></span><br><br>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" th:field="*{email}">
+        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error"></span><br><br>
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" th:field="*{city}">
+        <span th:if="${#fields.hasErrors('city')}" th:errors="*{city}" class="error"></span><br><br>
+        <label for="telegram">Telegram messenger:</label>
+        <input type="text" id="telegram" name="telegram" th:field="*{telegram}">
+        <span th:if="${#fields.hasErrors('telegram')}" th:errors="*{telegram}" class="error"></span><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" th:field="*{password}">
+        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error"></span><br><br>
+        <button type="submit">OK</button>
+    </form>
+</body>
+</html>

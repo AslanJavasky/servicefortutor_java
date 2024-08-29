@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Tutor page</title>
+</head>
+<body>
+<h1>Tutor page</h1>
+<h2> Select students and mark the topics covered: </h2>
+
+<form th:method="POST" th:action="@{/create_lesson}">
+
+    <label for="topic">Select topic:</label>
+    <select id="topic" name="topic">
+        <option th:each="topic: ${topicList}" th:value="${#numbers.formatInteger(topic.id, 0)}" th:text="${topic.name}"/>
+    </select>
+
+
+    <h3>Students:</h3>
+    <div th:each="student: ${studentList}">
+        <input type="checkbox" name="student" th:id="${'student' + student.id}" th:value="${student.id}">
+        <label th:for="${'student' + student.id}" th:text="${student.name + ' '+ student.lastname}"/><br>
+    </div>
+    <br>
+    <input type="submit" value="OK">
+</form>
+</body>
+</html>
